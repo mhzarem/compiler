@@ -1,0 +1,564 @@
+#include <stdio.h>
+#include <stdlib.h>
+void   next(){
+        if(strcmp("/",firstT->typeT)==0)
+                firstT=firstT->next;
+        if(search(firstT->typeT)->value==0)
+           {
+            printf("divide on 0");
+            endf(); return 0;}
+        else firstT=firstT->next;
+
+    }
+firstS *search(char a[]){
+
+
+    do{
+
+        if(strcmp(a,firstS->atttrS)==0)
+            return firstS;
+    }
+    while(firstS->next!=NULL);
+    }
+void endf(){
+  while(strcmp(firstT->arrT,";")!=0||strcmp("keyword",firstT->typeT)!=0){
+    next();
+  }
+     return 0;
+  }
+void mainff(){
+    next();
+   if(strcmp(firstT->arrT,"(")==0)
+    next();
+     else{printf("line is%d i read %s corect is(\n",firstT->lineT,firstT->arrT);
+                      next(); endf(); return 0;}
+        if(strcmp(firstT->arrT,")")==0)
+           next();
+            else{printf("line is%d i read %s corect is)\n",firstT->lineT,firstT->arrT);
+                   next(); endf(); return 0;}
+                   if(strcmp(firstT->arrT,"{")==0)
+                           next();
+                             else{printf("line is%d i read %s corect is {",firstT->lineT,firstT->arrT);
+                                      next(); }
+
+ }
+void elsef(){
+                next();
+               if(strcmp(firstT->arrT,"{")==0)
+                  next();
+                        else {printf("line is%d i read %s corect is{\n",firstT->lineT,firstT->arrT);
+                          next(); }
+                             mainf();
+                              if (strcmp(firstT->arrT,"}")==0)
+                                    next();
+                                else{printf("line is%d i read %s corect }is)\n",firstT->lineT,firstT->arrT);
+                                   next();}
+
+}
+void iff(){
+    next();
+    if(strcmp(firstT->arrT,"(")==0)
+    next();
+     else{printf("line is%d i read %s corect is(\n",firstT->lineT,firstT->arrT);
+                      next(); }
+       if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+           next();
+        else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT);
+                next(); }
+         if(strcmp(firstT->arrT,"==")==0||strcmp(firstT->arrT,">")==0||strcmp(firstT->arrT,"<")==0||strcmp(firstT->arrT,"!=")==0||strcmp(firstT->arrT,"<=")==0||strcmp(firstT->arrT,">=")==0)
+                     next();
+           else {printf("line is%d i read %s corect is ==,<,>,!=,>=,<=\n",firstT->lineT,firstT->arrT);
+                 next();
+           }
+             if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+               next();
+                else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT); next();}
+                 if(strcmp(firstT->arrT,"||")==0||strcmp(firstT->arrT,"&&")==0){goto *51;}
+                    if(strcmp(firstT->arrT,")")==0) next();
+                     else{printf("line is%d i read %s corect is)\n",firstT->lineT,firstT->arrT);
+                         next();}
+                       if(strcmp(firstT->arrT,"{")==0){next();}
+                        else {printf("line is%d i read %s corect is{\n",firstT->lineT,firstT->arrT);
+                          next(); }
+                               mainf();
+                            if (strcmp(firstT->arrT,"}"==0))next();
+                              else{printf("line is%d i read %s corect }is)\n",firstT->lineT,firstT->arrT);
+                                  next();}}
+void whilef(){
+    next();
+    if(strcmp(firstT->arrT,"(")==0)
+    next();
+     else{printf("line is%d i read %s corect is(\n",firstT->lineT,firstT->arrT);
+                      next(); }
+       if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+           next();
+        else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT);
+                next(); }
+         if(strcmp(firstT->arrT,"==")==0||strcmp(firstT->arrT,">")==0||strcmp(firstT->arrT,"<")==0||strcmp(firstT->arrT,"!=")==0||strcmp(firstT->arrT,"<=")==0||strcmp(firstT->arrT,">=")==0)
+                     next();
+           else {printf("line is%d i read %s corect is ==,<,>,!=,>=,<=\n",firstT->lineT,firstT->arrT);
+                 next();
+           }
+             if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+               next();
+                else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT);next();}
+                 if(strcmp(firstT->arrT,"||")==0||strcmp(firstT->arrT,"&&")==0){goto *80;}
+                    if(strcmp(firstT->arrT,")")==0) next();
+                     else{printf("line is%d i read %s corect is)\n",firstT->lineT,firstT->arrT);
+                         next();}
+                       if(strcmp(firstT->arrT,"{")==0){next();}
+                        else {printf("line is%d i read %s corect is{\n",firstT->lineT,firstT->arrT);
+                          next(); }
+                               mainf();
+                            if (strcmp(firstT->arrT,"}")==0)next();
+                              else{printf("line is%d i read %s corect }is)\n",firstT->lineT,firstT->arrT);
+                                  next();}
+}
+void intf(){
+    next();
+
+
+           if(strcmp("id",firstT->typeT)==0)
+              {
+            firstS *q=search(firstT->arrT);
+            next();
+
+
+
+            }
+                else{printf("line is%d i read %s corect is id \n",firstT->lineT,firstT->arrT);
+                   next(); endf(); return 0;}
+                  if(strcmp("max",firstT->arrT)==0||strcmp("min",firstT->arrT)==0||strcmp("=",firstT->arrT)==0||strcmp(";",firstT->arrT)==0)
+                    else {printf("line is%d i read %s corect is max min = ; \n",firstT->lineT,firstT->arrT);
+                      endf(); return 0;}
+                     //max or min
+                      if(strcmp("max",firstT->arrT)==0||strcmp("min",firstT->arrT)==0)
+                              {if(strcmp("(",firstT->arrT)==0)
+                                     next();
+                                        else{printf("line is%d i read %s corect is(\n",firstT->lineT,firstT->arrT);next();}
+                                                   if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                                                      next();
+                                                         else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT); next();}
+                                                              if(strcmp(",",firstT->arrT)==0)
+                                                                   next();
+                                                                  else{printf("line is%d i read %s corect is ,\n",firstT->lineT,firstT->arrT);
+                                                                         next();}
+                                                                           if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                                                                                next();
+                                                                                else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT); next();}
+                                                                                    if(strcmp(")",firstT->arrT)==0) next();
+                                                                                        else{printf("line is%d i read %s corect is)\n",firstT->lineT,firstT->arrT);
+                                                                                             next();}
+                                                                                              if(token()==';') {next();                                                           }
+                                                                                                 else{printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                                                                                                 next(); return 0; }}
+
+                     //end of max or min
+                     //;
+                  if(strcmp(";",firstT->arrT)==0)
+                    {next();
+                     if(strcmp(";",firstT->arrT)!=0){printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                         next();}
+                           return 0;
+
+                         }
+
+                                     // end ;
+                                     //=
+
+                  if(strcmp("=",firstT->arrT)==0){next();
+                        else {printf("line is%d i read %s corect is=\n",firstT->lineT,firstT->arrT);
+                          next();}
+                           if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                           {
+
+
+                            if(strcmp("id",firstT->typeT)==0){
+                                 firstS *w=search(firstT->arrT);
+                                        q->value=w->value;}
+                                         else q->value=firstT->arrT;
+                                  next();}
+                                 else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT);
+                                  next();}
+                                 if(strcmp(";",firstT->arrT)==0||strcmp("+",firstT->arrT)==0||strcmp("/",firstT->arrT)==0||strcmp("*",firstT->arrT)==0||strcmp("-",firstT->arrT)==0)
+                                    else {printf("line is%d i read %s corect is; + - / *\n",firstT->lineT,firstT->arrT);
+                                       next();  endf(); return 0:}
+                                      if(strcmp(";",firstT->arrT)==0) {next(); return 0;}
+
+                                            if(strcmp("+",firstT->arrT)==0||strcmp("/",firstT->arrT)==0||strcmp("*",firstT->arrT)==0||strcmp("-",firstT->arrT)==0){int c;
+                                                if (strcmp("+",firstT->arrT)==0)c=0;
+                                                if (strcmp("/",firstT->arrT)==0)c=1;
+                                                if (strcmp("*",firstT->arrT)==0)c=2;
+                                                if (strcmp("-",firstT->arrT)==0)c=3;
+
+                                                              next();}
+
+                                                 if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                           {
+
+
+                            if(strcmp("id",firstT->typeT)==0){int b;
+                                 firstS *z=search(firstT->arrT);
+                                 if (z->value==NULL) {endf();return 0;}
+                                 switch(c){
+                                 case'0':q->value=q->value+z->value; break;
+                                 case'1':q->value=q->value/z->value; break;
+                                 case'2':q->value=q->value*z->value; break;
+                                 case'3':q->value=q->value-z->value; break;
+
+
+
+                                 }
+
+
+
+
+                                        }
+                                         else b=firstT->arrT;
+                                         switch(c){
+                                 case'0':q->value=q->value+b; break;
+                                 case'1':q->value=q->value/ b;  break;
+                                 case'2':q->value=q->value*b; break;
+                                 case'3':q->value=q->value-b; break;
+
+
+
+                                 }
+
+                                  next();}
+                                 else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT);
+                                  next();}
+                                                           if(strcmp(";",firstT->arrT)==0)
+                                                                 next();
+                                                                  else{printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                                                                      next();}
+                                                                          }
+
+
+}
+void floatf(){
+    next();
+
+
+           if(strcmp("id",firstT->typeT)==0)
+              {
+            firstS *q=search(firstT->arrT);
+            next();
+
+
+
+            }
+                else{printf("line is%d i read %s corect is id \n",firstT->lineT,firstT->arrT);
+                   next(); endf(); return 0;}
+                  if(strcmp("max",firstT->arrT)==0||strcmp("min",firstT->arrT)==0||strcmp("=",firstT->arrT)==0||strcmp(";",firstT->arrT)==0)
+                    else {printf("line is%d i read %s corect is max min = ; \n",firstT->lineT,firstT->arrT);
+                      endf(); return 0;}
+                     //max or min
+                      if(strcmp("max",firstT->arrT)==0||strcmp("min",firstT->arrT)==0)
+                              {if(strcmp("(",firstT->arrT)==0)
+                                     next();
+                                        else{printf("line is%d i read %s corect is(\n",firstT->lineT,firstT->arrT);next();}
+                                                   if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                                                      next();
+                                                         else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT); next();}
+                                                              if(strcmp(",",firstT->arrT)==0)
+                                                                   next();
+                                                                  else{printf("line is%d i read %s corect is ,\n",firstT->lineT,firstT->arrT);
+                                                                         next();}
+                                                                           if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                                                                                next();
+                                                                                else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT); next();}
+                                                                                    if(strcmp(")",firstT->arrT)==0) next();
+                                                                                        else{printf("line is%d i read %s corect is)\n",firstT->lineT,firstT->arrT);
+                                                                                             next();}
+                                                                                              if(token()==';') {next();                                                           }
+                                                                                                 else{printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                                                                                                 next(); return 0; }}
+
+                     //end of max or min
+                     //;
+                  if(strcmp(";",firstT->arrT)==0)
+                    {next();
+                     if(strcmp(";",firstT->arrT)!=0){printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                         next();}
+                           return 0;
+
+                         }
+
+                                     // end ;
+                                     //=
+
+                  if(strcmp("=",firstT->arrT)==0){next();
+                        else {printf("line is%d i read %s corect is=\n",firstT->lineT,firstT->arrT);
+                          next();}
+                           if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                           {
+
+
+                            if(strcmp("id",firstT->typeT)==0){
+                                 firstS *w=search(firstT->arrT);
+                                        q->value=w->value;}
+                                         else q->value=firstT->arrT;
+                                  next();}
+                                 else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT);
+                                  next();}
+                                 if(strcmp(";",firstT->arrT)==0||strcmp("+",firstT->arrT)==0||strcmp("/",firstT->arrT)==0||strcmp("*",firstT->arrT)==0||strcmp("-",firstT->arrT)==0)
+                                    else {printf("line is%d i read %s corect is; + - / *\n",firstT->lineT,firstT->arrT);
+                                       next();  endf(); return 0:}
+                                      if(strcmp(";",firstT->arrT)==0) {next(); return 0;}
+
+                                            if(strcmp("+",firstT->arrT)==0||strcmp("/",firstT->arrT)==0||strcmp("*",firstT->arrT)==0||strcmp("-",firstT->arrT)==0){int c;
+                                                if (strcmp("+",firstT->arrT)==0)c=0;
+                                                if (strcmp("/",firstT->arrT)==0)c=1;
+                                                if (strcmp("*",firstT->arrT)==0)c=2;
+                                                if (strcmp("-",firstT->arrT)==0)c=3;
+
+                                                              next();}
+
+                                                 if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                           {
+
+
+                            if(strcmp("id",firstT->typeT)==0){int b;
+                                 firstS *z=search(firstT->arrT);
+                                 if (z->value==NULL) {endf();return 0;}
+                                 switch(c){
+                                 case'0':q->value=q->value+z->value; break;
+                                 case'1':q->value=q->value/z->value; break;
+                                 case'2':q->value=q->value*z->value; break;
+                                 case'3':q->value=q->value-z->value; break;
+
+
+
+                                 }
+
+
+
+
+                                        }
+                                         else b=firstT->arrT;
+                                         switch(c){
+                                 case'0':q->value=q->value+b; break;
+                                 case'1':q->value=q->value/ b;  break;
+                                 case'2':q->value=q->value*b; break;
+                                 case'3':q->value=q->value-b; break;
+
+
+
+                                 }
+
+                                  next();}
+                                 else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT);
+                                  next();}
+                                                           if(strcmp(";",firstT->arrT)==0)
+                                                                 next();
+                                                                  else{printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                                                                      next();}
+                                                                          }
+
+
+}
+void boolf(){
+                 next();
+    if(strcmp("id",firstT->typeT)==0){
+        firstS *q =search(firstT->arrT);
+                   next();}
+                else{printf("line is%d i read %s corect is id \n",firstT->lineT,firstT->arrT);
+                next();}
+                     //;
+                  if(strcmp(";",firstT->arrT)==0)
+                    {next();
+                     if(strcmp(";",firstT->arrT)!=0){printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                         next();}
+                           return 0;
+
+                         }
+                             if(strcmp("=",firstT->arrT)==0){next();}
+                                else {printf("line is%d i read %s corect is=\n",firstT->lineT,firstT->arrT);
+                                    next();}
+                                     if(strcmp("true",firstT->arrT)==0||strcmp("false",firstT->arrT)==0)
+                                                    next();
+                                                      else{printf("line is%d i read %s corect is true or false\n",firstT->lineT,firstT->arrT);
+                                                        next();}
+                                               if(strcmp(";",firstT->arrT)==0)
+                                                                 {next();
+                                                        if(strcmp(";",firstT->arrT)!=0){printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                                                                                                                   next();}
+                                                                               return 0;
+
+                                                                             }
+                  }
+void idf(){
+
+           if(strcmp("id",firstT->typeT)==0)
+              {
+            firstS *q=search(firstT->arrT);
+            next();
+
+
+
+            }
+                else{printf("line is%d i read %s corect is id \n",firstT->lineT,firstT->arrT);
+                   next(); endf(); return 0;}
+                  if(strcmp("max",firstT->arrT)==0||strcmp("min",firstT->arrT)==0||strcmp("=",firstT->arrT)==0||strcmp(";",firstT->arrT)==0)
+                    else {printf("line is%d i read %s corect is max min = ; \n",firstT->lineT,firstT->arrT);
+                      endf(); return 0;}
+                     //max or min
+                      if(strcmp("max",firstT->arrT)==0||strcmp("min",firstT->arrT)==0)
+                              {if(strcmp("(",firstT->arrT)==0)
+                                     next();
+                                        else{printf("line is%d i read %s corect is(\n",firstT->lineT,firstT->arrT);next();}
+                                                   if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                                                      next();
+                                                         else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT); next();}
+                                                              if(strcmp(",",firstT->arrT)==0)
+                                                                   next();
+                                                                  else{printf("line is%d i read %s corect is ,\n",firstT->lineT,firstT->arrT);
+                                                                         next();}
+                                                                           if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                                                                                next();
+                                                                                else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT); next();}
+                                                                                    if(strcmp(")",firstT->arrT)==0) next();
+                                                                                        else{printf("line is%d i read %s corect is)\n",firstT->lineT,firstT->arrT);
+                                                                                             next();}
+                                                                                              if(token()==';') {next();                                                           }
+                                                                                                 else{printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                                                                                                 next(); return 0; }}
+
+                     //end of max or min
+                     //;
+                  if(strcmp(";",firstT->arrT)==0)
+                    {next();
+                     if(strcmp(";",firstT->arrT)!=0){printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                         next();}
+                           return 0;
+
+                         }
+
+                                     // end ;
+                                     //=
+
+                  if(strcmp("=",firstT->arrT)==0){next();
+                        else {printf("line is%d i read %s corect is=\n",firstT->lineT,firstT->arrT);
+                          next();}
+                           if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                           {
+
+
+                            if(strcmp("id",firstT->typeT)==0){
+                                 firstS *w=search(firstT->arrT);
+                                        q->value=w->value;}
+                                         else q->value=firstT->arrT;
+                                  next();}
+                                 else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT);
+                                  next();}
+                                 if(strcmp(";",firstT->arrT)==0||strcmp("+",firstT->arrT)==0||strcmp("/",firstT->arrT)==0||strcmp("*",firstT->arrT)==0||strcmp("-",firstT->arrT)==0)
+                                    else {printf("line is%d i read %s corect is; + - / *\n",firstT->lineT,firstT->arrT);
+                                       next();  endf(); return 0:}
+                                      if(strcmp(";",firstT->arrT)==0) {next(); return 0;}
+
+                                            if(strcmp("+",firstT->arrT)==0||strcmp("/",firstT->arrT)==0||strcmp("*",firstT->arrT)==0||strcmp("-",firstT->arrT)==0){int c;
+                                                if (strcmp("+",firstT->arrT)==0)c=0;
+                                                if (strcmp("/",firstT->arrT)==0)c=1;
+                                                if (strcmp("*",firstT->arrT)==0)c=2;
+                                                if (strcmp("-",firstT->arrT)==0)c=3;
+
+                                                              next();}
+
+                                                 if(strcmp("id",firstT->typeT)==0||strcmp("number",firstT->typeT)==0)
+                           {
+
+
+                            if(strcmp("id",firstT->typeT)==0){int b;
+                                 firstS *z=search(firstT->arrT);
+                                 if (z->value==NULL) {endf();return 0;}
+                                 switch(c){
+                                 case'0':q->value=q->value+z->value; break;
+                                 case'1':q->value=q->value/z->value; break;
+                                 case'2':q->value=q->value*z->value; break;
+                                 case'3':q->value=q->value-z->value; break;
+
+
+
+                                 }
+
+
+
+
+                                        }
+                                         else b=firstT->arrT;
+                                         switch(c){
+                                 case'0':q->value=q->value+b; break;
+                                 case'1':q->value=q->value/ b;  break;
+                                 case'2':q->value=q->value*b; break;
+                                 case'3':q->value=q->value-b; break;
+
+
+
+                                 }
+
+                                  next();}
+                                 else{printf("line is%d i read %s corect is id or number\n",firstT->lineT,firstT->arrT);
+                                  next();}
+                                                           if(strcmp(";",firstT->arrT)==0)
+                                                                 next();
+                                                                  else{printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                                                                      next();}
+                                                                          }
+
+
+}
+void charf(){
+    next();
+    if(strcmp("id",firstT->typeT)==0)
+               next();
+                else{printf("line is%d i read %s corect is id \n",firstT->lineT,firstT->arrT); next();}
+                   if(strcmp("=",firstT->arrT)==0 )next();
+                        else {printf("line is%d i read %s corect is=\n",firstT->lineT,firstT->arrT);
+                          next();}
+                             if(strcmp("'",firstT->arrT)==0){next();}
+                        else {printf("line is%d i read %s corect is'\n",firstT->lineT,firstT->arrT);
+                          next();}
+
+
+
+
+
+
+
+
+                           if(strcmp("'",firstT->arrT)==0){next();}
+                        else {printf("line is%d i read %s corect is'\n",firstT->lineT,firstT->arrT);
+                          next();}
+                        if(strcmp(";",firstT->arrT)==0)
+                    {next();
+                     if(strcmp(";",firstT->arrT)!=0){printf("line is%d i read %s corect is;\n",firstT->lineT,firstT->arrT);
+                         next();}
+                           return 0;
+
+                         }
+}
+void mainf(){
+   switch(firstT->arrT)
+   case"main":  mainff();break;
+   case"if":    iff();break;
+   case"else":  elsef();break;
+   case"while": whilef();break;
+   case"int":   intf();break;
+   case"bool":  boolf();break;
+   case"float": floatf();break;
+   case"char": charf();break;
+   default:
+       {if(strcmp("id",firstT->typeT)==0){idf();}
+    }
+ }
+int  main(){
+
+   do{
+        mainf();
+
+
+    }
+     while(firstT->next!=NULL)
+    return 0;
+}
